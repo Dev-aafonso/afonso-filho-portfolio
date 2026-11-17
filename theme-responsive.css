@@ -988,3 +988,140 @@ section[id] { scroll-margin-top: 24px; }
   .card-entered { animation: none !important; }
   .journey-content, .journey-item::before, .ai-topic { transition: none !important; }
 }
+
+
+/* Minimal refined timeline and AI animation polish — v7 */
+.timeline-section {
+  padding-bottom: clamp(62px, 8vw, 96px);
+}
+.timeline-section .journey-timeline {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 0 0 22px;
+  border-color: #3b4d6f;
+}
+.timeline-section .journey-item {
+  display: grid;
+  grid-template-columns: 116px minmax(0,1fr);
+  gap: clamp(16px,2.8vw,34px);
+  align-items: start;
+  padding: 0 0 31px 24px;
+}
+.timeline-section .journey-item:last-child { padding-bottom: 0; }
+.timeline-section .journey-item::before {
+  left: -30px;
+  top: 14px;
+  width: 11px;
+  height: 11px;
+}
+.timeline-section .journey-date {
+  padding-top: 10px;
+  color: #b5c7ff;
+  font-size: 11px;
+  letter-spacing: .08em;
+  font-weight: 800;
+}
+.timeline-section .journey-content,
+:root[data-theme="light"] .timeline-section .journey-content {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #354361;
+  border-radius: 0;
+  padding: 2px 0 25px;
+  box-shadow: none;
+  transform: none;
+}
+.timeline-section .journey-kind {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #a9bdff;
+  font-size: 9px;
+}
+.timeline-section .journey-content h3 {
+  font-size: clamp(15px,1.9vw,19px);
+  line-height: 1.35;
+}
+.timeline-section .journey-content p {
+  max-width: 640px;
+  font-size: 13px;
+  line-height: 1.75;
+}
+.timeline-section .timeline-cert {
+  max-width: 940px;
+  margin-top: 26px;
+  border-radius: 8px;
+  background: transparent;
+  border-color: #475c82;
+  padding: 17px 20px;
+}
+:root[data-theme="light"] .timeline-section .journey-content {
+  border-bottom-color: #cfdaeb;
+}
+:root[data-theme="light"] .timeline-section .journey-kind {color:#315ca8;}
+:root[data-theme="light"] .timeline-section .timeline-cert {background: #f2f6ff;}
+@media (hover:hover) and (pointer:fine) {
+  .timeline-section .journey-item:hover .journey-content {
+    transform: none;
+    border-color: #7f9edd;
+    box-shadow: none;
+  }
+  .timeline-section .journey-item:hover .journey-content h3 {
+    color: #b8caff;
+  }
+  :root[data-theme="light"] .timeline-section .journey-item:hover .journey-content h3 {color:#275dbb;}
+  .ai-topic:hover {
+    transform: translateY(-3px);
+    border-color: #7295d3;
+    box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  }
+}
+/* Contact actions: strong contrast without oversized filled buttons. */
+.contact-socials a, .copy-contact {
+  background: rgba(19,43,89,.25);
+  color: #162e5b;
+  border: 1.5px solid #274b91;
+  border-radius: 7px;
+  box-shadow: none;
+}
+:root[data-theme="light"] .contact-socials a,
+:root[data-theme="light"] .copy-contact {
+  background: #fff;
+  color: #153f86;
+  border-color: #2e5fac;
+}
+@media (hover:hover) and (pointer:fine) {
+  .contact-socials a:hover, .copy-contact:hover {background:#d1e0ff; color:#102a57;}
+  :root[data-theme="light"] .contact-socials a:hover,
+  :root[data-theme="light"] .copy-contact:hover {background:#e4eeff; color:#153f86;}
+}
+.ai-topic {
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.ai-topic::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,transparent,#93b0ff,transparent);
+  opacity: .45;
+}
+.timeline-section .journey-item.is-past::before {
+  background: #bbcaff;
+}
+@media (max-width:760px){
+  .timeline-section .journey-timeline {margin: 0; padding-left: 19px;}
+  .timeline-section .journey-item {
+    grid-template-columns: minmax(0,1fr);
+    gap: 3px;
+    padding: 0 0 22px 22px;
+  }
+  .timeline-section .journey-date {padding-top: 0;}
+  .timeline-section .journey-item::before {left:-28px; top:7px;}
+  .timeline-section .journey-content {padding: 4px 0 17px;}
+  .timeline-section .timeline-cert {padding:16px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .ai-topic {transition:none !important;}
+}
