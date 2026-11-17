@@ -116,4 +116,78 @@
     });
   }
 
+
+  // Portfolio v2 controls and accessible interactions
+  const progress = document.querySelector('[data-scroll-progress]');
+  const backToTop = document.querySelector('[data-back-to-top]');
+  let scrollPending = false;
+
+  function updateScrollControls() {
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const position = Math.max(0, window.scrollY || document.documentElement.scrollTop || 0);
+    progress?.style.setProperty('--scroll-progress', String(Math.min(1,position/max)));
+    backToTop?.classList.toggle('is-visible',position > 500);
+    scrollPending=false;
+  }
+  window.addEventListener('scroll', () => {
+    if(scrollPending) return;
+    scrollPending=true;
+    window.requestAnimationFrame(updateScrollControls);
+  }, {passive:true});
+  window.addEventListener('resize',updateScrollControls);
+  updateScrollControls();
+  backToTop?.addEventListener('click', () => {
+    window.scrollTo({top:0,behavior:mediaQueryReducedMotion()?'instant':'smooth'});
+  });
+
+  const filterButtons=[...document.querySelectorAll('[data-project-filter]')];
+  const projectCards=[...document.querySelectorAll('[data-project-category]')];
+  const filterFeedback=document.querySelector('[data-filter-feedback]');
+  filterButtons.forEach(button => button.addEventListener('click',() => {
+    const category=button.dataset.projectFilter;
+    let visible=0;
+    projectCards.forEach(card => {
+      const show=category==='all'||card.dataset.projectCategory===category;
+      if(show) visible++;
+      card.toggleAttribute('data-filter-hidden',!show);
+      if(!show) card.querySelectorAll('details[open]').forEach(details=>details.open=false);
+    });
+    filterButtons.forEach(item=>{
+      const active=item===button;
+      item.classList.toggle('is-active',active);
+      item.setAttribute('aria-pressed',String(active));
+    });
+    if(filterFeedback) {
+      filterFeedback.textContent=isEnglish
+        ? visible+' '+(visible===1?'project':'projects')+' displayed'
+        : visible+' '+(visible===1?'projeto exibido':'projetos exibidos');
+    }
+  }));
+
+  const copyButton=document.querySelector('[data-copy-email]');
+  const copyFeedback=document.querySelector('[data-copy-feedback]');
+  copyButton?.addEventListener('click',async()=>{
+    const email='afonsofilho692@gmail.com';
+    let success=false;
+    try {
+      if(navigator.clipboard?.writeText){
+        await navigator.clipboard.writeText(email);
+        success=true;
+      }
+    }catch(_){}
+    if(!success){
+      const fallback=document.createElement('textarea');
+      fallback.value=email;
+      fallback.style.position='fixed';
+      fallback.style.opacity='0';
+      document.body.appendChild(fallback);
+      fallback.select();
+      try{success=document.execCommand('copy');}catch(_){}
+      fallback.remove();
+    }
+    if(copyFeedback)copyFeedback.textContent=success
+      ? (isEnglish?'Email address copied.':'E-mail copiado.')
+      : (isEnglish?'Could not copy. Email: '+email:'Não foi possível copiar. E-mail: '+email);
+  });
+
 })();
