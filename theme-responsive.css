@@ -1044,3 +1044,170 @@ section[id] { scroll-margin-top: 24px; }
   .section.skills-section { padding-bottom: 24px; }
   .section.ai-section { padding-top: 32px; }
 }
+
+
+/* Buttons v10: consistent contrast, hierarchy and comfortable touch targets */
+:root {
+  --action-accent: #acc4ff;
+  --action-accent-hover: #d0ddff;
+  --action-ink: #102141;
+}
+/* Contact area: bright primary action, readable secondary actions. */
+.contact-section .contact-actions .button.light {
+  display: inline-flex;
+  min-height: 49px;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 20px;
+  border-radius: 9px;
+  border: 1px solid #ffffff;
+  background: #fff;
+  color: #142954;
+  box-shadow: 0 7px 22px rgba(18,43,105,.14);
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+.contact-section .contact-actions .button.light span {
+  margin-left: 0;
+  color: inherit;
+  font-size: 16px;
+}
+.contact-section .contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+.contact-section .contact-socials a,
+.contact-section .contact-socials .copy-contact {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 11px 17px;
+  border-radius: 9px;
+  border: 1px solid rgba(22,53,112,.42);
+  background: rgba(255,255,255,.20);
+  color: #132d63;
+  box-shadow: 0 3px 10px rgba(18,48,114,.07);
+  font: 800 12px/1.3 var(--font);
+  text-decoration: none;
+  opacity: 1;
+}
+.contact-section .contact-socials a span,
+.contact-section .contact-socials .copy-contact span {
+  font-size: 14px;
+  color: inherit;
+}
+.contact-section .contact-actions .contact-email {
+  color: #142b61;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+:root[data-theme="light"] .contact-section .contact-actions .button.light {
+  background: #204fa8;
+  color: #fff;
+  border-color: #204fa8;
+}
+:root[data-theme="light"] .contact-section .contact-socials a,
+:root[data-theme="light"] .contact-section .contact-socials .copy-contact {
+  background: #fff;
+  color: #173b7b;
+  border-color: #7f9ed2;
+  box-shadow: 0 3px 12px rgba(34,76,148,.08);
+}
+:root[data-theme="light"] .contact-section .contact-actions .contact-email {
+  color: #1b488f;
+}
+/* Filters: selected state must be obvious beyond border changes. */
+.project-filter { gap: 10px; }
+.project-filter .filter-btn {
+  border-radius: 9px;
+  min-height: 44px;
+  padding: 10px 16px;
+  background: #273750;
+  border: 1px solid #6782ae;
+  color: #f1f5ff;
+  font: 800 12px var(--font);
+}
+.project-filter .filter-btn.is-active {
+  background: var(--action-accent);
+  border-color: var(--action-accent);
+  color: var(--action-ink);
+}
+:root[data-theme="light"] .project-filter .filter-btn {
+  background: #f4f8ff;
+  border-color: #9fb7dc;
+  color: #234779;
+}
+:root[data-theme="light"] .project-filter .filter-btn.is-active {
+  background: #285cb5;
+  border-color: #285cb5;
+  color: #fff;
+}
+/* Project actions: fit the card without looking like oversized banners. */
+.project .project-link {
+  min-height: 44px;
+  justify-content: space-between;
+  gap: 13px;
+  border-radius: 8px;
+  padding: 11px 15px;
+  border: 1px solid #a7bef2;
+  background: #b8ccff;
+  color: #102345;
+  box-shadow: none;
+  line-height: 1.3;
+  margin-top: 22px;
+}
+:root[data-theme="light"] .project .project-link {
+  background: #285cb5;
+  border-color: #285cb5;
+  color: #fff;
+}
+@media (hover:hover) and (pointer:fine) {
+  .contact-section .contact-actions .button.light:hover {
+    background: #eef3ff; color: #122651;
+    box-shadow: 0 9px 22px rgba(17,45,115,.2);
+    transform: translateY(-2px);
+  }
+  :root[data-theme="light"] .contact-section .contact-actions .button.light:hover {
+    background: #173f8c; color: #fff;
+  }
+  .contact-section .contact-socials a:hover,
+  .contact-section .contact-socials .copy-contact:hover {
+    background: #fff;
+    border-color: #fff;
+    color: #142f64;
+    box-shadow: 0 8px 18px rgba(16,39,100,.12);
+    transform: translateY(-2px);
+  }
+  :root[data-theme="light"] .contact-section .contact-socials a:hover,
+  :root[data-theme="light"] .contact-section .contact-socials .copy-contact:hover {
+    background: #e6efff;
+    color: #173b7b;
+    border-color: #547fc1;
+  }
+  .project-filter .filter-btn:hover:not(.is-active) { background: #3b5173; color: #fff; }
+  :root[data-theme="light"] .project-filter .filter-btn:hover:not(.is-active) { background: #dfebff; color: #173d78; }
+  .project .project-link:hover { background: #d3e0ff; color: #0f2348; border-color: #d3e0ff; }
+  :root[data-theme="light"] .project .project-link:hover { background: #173f8a; color: #fff; border-color: #173f8a; }
+}
+@media (max-width: 540px) {
+  .contact-section .contact-socials { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .contact-section .contact-socials .copy-contact { grid-column: 1 / -1; }
+  .contact-section .contact-socials a,
+  .contact-section .contact-socials .copy-contact { width: 100%; }
+}
+@media (max-width: 340px) {
+  .contact-section .contact-socials { grid-template-columns: minmax(0,1fr); }
+  .contact-section .contact-socials .copy-contact { grid-column: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-section .contact-socials a,
+  .contact-section .contact-socials .copy-contact,
+  .project-filter .filter-btn,
+  .project .project-link { transition: none !important; transform: none !important; }
+}
