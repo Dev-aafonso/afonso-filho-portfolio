@@ -71,7 +71,6 @@
   function mediaQueryReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
-}
   // Portfolio motion: reveal sections on scroll; no animation for reduced motion.
   if (!mediaQueryReducedMotion() && 'IntersectionObserver' in window) {
     const revealSelectors = [
@@ -98,4 +97,23 @@
       });
     });
   }
+
+  // Brilho acompanha o mouse apenas em dispositivos com cursor preciso.
+  const heroPanel = document.querySelector('.hero-visual');
+  if (heroPanel && !mediaQueryReducedMotion() &&
+      window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    heroPanel.addEventListener('pointermove', (event) => {
+      const rect = heroPanel.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      const x = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
+      const y = Math.max(0, Math.min(100, ((event.clientY - rect.top) / rect.height) * 100));
+      heroPanel.style.setProperty('--spot-x', x.toFixed(1) + '%');
+      heroPanel.style.setProperty('--spot-y', y.toFixed(1) + '%');
+    }, { passive: true });
+    heroPanel.addEventListener('pointerleave', () => {
+      heroPanel.style.removeProperty('--spot-x');
+      heroPanel.style.removeProperty('--spot-y');
+    });
+  }
+
 })();
