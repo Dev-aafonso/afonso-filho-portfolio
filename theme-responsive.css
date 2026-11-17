@@ -1537,15 +1537,6 @@ section[id] { scroll-margin-top: 24px; }
   box-shadow: 0 0 0 5px rgba(150,184,255,.16), 0 0 16px rgba(148,181,255,.35);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .timeline-section .journey-item.journey-entered .journey-date,
-  .timeline-section .journey-item.journey-entered .journey-content {
-    animation: journey-appear .62s cubic-bezier(.16,.8,.26,1) both;
-  }
-  .timeline-section .journey-item.journey-entered .journey-content { animation-delay: .09s; }
-  @keyframes journey-appear {
-    from { opacity: .25; translate: 0 12px; }
-    to { opacity: 1; translate: 0 0; }
-  }
   .ai-topic.ai-entered { animation: ai-appear .62s var(--entry-delay,0ms) cubic-bezier(.2,.75,.22,1) both; }
   @keyframes ai-appear {
     from { opacity: .4; translate: 0 16px; }
