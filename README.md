@@ -2,8 +2,8 @@
 
 Portfólio bilíngue (português/inglês) de **Afonso José Moreira Barros Filho**, estudante do Técnico Integrado em Informática no IFCE — Campus Cedro, com interesse em desenvolvimento de software, inteligência artificial e tecnologia educacional.
 
-**Site:** https://dev-aafonso.github.io/  
-**Versão em inglês:** https://dev-aafonso.github.io/en.html
+**Site:** https://dev-aafonso.github.io/afonso-filho-portfolio/  
+**Versão em inglês:** https://dev-aafonso.github.io/afonso-filho-portfolio/en.html
 
 ## Tecnologias e conhecimentos
 
@@ -36,7 +36,19 @@ Pesquisa sobre gamificação de um sistema adaptativo de questões para o ENEM, 
 
 ## Sobre o site
 
-Site estático hospedado pelo GitHub Pages. Inclui versões em português e inglês, design responsivo e alternância entre tema claro e escuro. O conteúdo principal está em `index.html` e `en.html`, com estilos em `style.css` e `theme-responsive.css`.
+Site estático preparado para GitHub Pages, com versões em português e inglês, design responsivo, alternância entre os temas claro e escuro e animações acessíveis.
+
+**Funcionalidades do site**
+- Filtros de projetos e detalhes técnicos expansíveis.
+- Tech Stack visual organizada por linguagens, interfaces, back-end e ferramentas.
+- Linha do tempo acadêmica e seção dedicada à inteligência artificial.
+- Botão Gmail, links profissionais e cópia rápida do e-mail.
+- Barra de leitura, botão de retorno ao topo e efeitos reduzidos quando o dispositivo solicita menos movimento.
+- Metadados SEO, Open Graph, URL canônica, versões alternativas e sitemap.
+
+**Arquivos:** `index.html` (português), `en.html` (inglês), `style.css`, `theme-responsive.css`, `script.js`, `robots.txt` e `sitemap.xml`.
+
+**Publicação:** se o GitHub Pages estiver configurado na branch `main`, pasta `/(root)`, o endereço padrão do projeto será o informado acima. A publicação e a propagação devem ser verificadas após alterações de configuração.
 
 ## Contato
 
