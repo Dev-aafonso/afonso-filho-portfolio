@@ -71,4 +71,31 @@
   function mediaQueryReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
+}
+  // Portfolio motion: reveal sections on scroll; no animation for reduced motion.
+  if (!mediaQueryReducedMotion() && 'IntersectionObserver' in window) {
+    const revealSelectors = [
+      '.section-head', '.feature-project', '.research-project',
+      '.verates-project', '.pibic-project', '.about-heading',
+      '.about-copy', '.skill-row', '.course-highlight', '.contact-inner'
+    ];
+    const observer = new IntersectionObserver((entries, instance) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add('motion-visible');
+        instance.unobserve(entry.target);
+      }
+    }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+
+    // Never hide content that is already on screen (or when JS is unavailable).
+    requestAnimationFrame(() => {
+      document.querySelectorAll(revealSelectors.join(',')).forEach((element, index) => {
+        const position = element.getBoundingClientRect();
+        if (position.top <= window.innerHeight * 0.92) return;
+        element.style.setProperty('--motion-delay', (index % 3) * 70 + 'ms');
+        element.classList.add('motion-reveal');
+        observer.observe(element);
+      });
+    });
+  }
 })();
