@@ -31,3 +31,24 @@
 
 .pibic-project{margin-top:18px;padding:35px;display:grid;grid-template-columns:150px 1fr;gap:32px;background:#202943}.pibic-number{font-family:var(--display);font-size:46px;line-height:1;font-weight:800;letter-spacing:-.06em;color:#aabfff}.pibic-number span{display:block;margin-top:12px;font:700 9px var(--font);letter-spacing:.12em;color:#a6b4d0}.pibic-copy{max-width:730px}.pibic-copy p:not(.project-overline){font-size:13px;line-height:1.8;color:#c4cee1}.pibic-note{display:block;margin-top:10px;color:#9faecb;font-size:10px}@media(max-width:680px){.pibic-project{padding:27px 24px;grid-template-columns:1fr;gap:23px}.pibic-number{font-size:34px}}
 .language-link{font-size:11px;font-weight:800;color:#cbd5ef;letter-spacing:.08em;padding:8px}@media(max-width:680px){.language-link{padding:5px}}
+
+
+/* Verates: representação conceitual do projeto de inteligência artificial */
+.verates-art{height:178px;margin:4px 0 14px;display:flex;align-items:center;justify-content:center}
+.fact-check-ui{width:min(100%,340px);padding:14px 16px 12px;border-radius:11px;background:linear-gradient(140deg,#e8efff,#d6e1ff);color:#223459;box-shadow:0 15px 28px #0003;transform:rotate(-2deg);border:1px solid #aabff4}
+.fact-check-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:9px;border-bottom:1px solid #b6c8ed}
+.fact-check-logo{font-family:var(--display);font-size:24px;font-weight:800;letter-spacing:-.06em;line-height:1;color:#223a76}
+.fact-check-logo>span{color:#718ee8}.fact-check-logo small{font-size:9px;letter-spacing:.12em;margin-left:5px}
+.fact-check-chip{background:#4d69bb;color:#f9fbff;font-size:10px;font-weight:900;padding:4px 9px;border-radius:12px;letter-spacing:.05em}
+.fact-check-question{padding:12px 0}.fact-check-label{font-size:8px;font-weight:900;letter-spacing:.11em;color:#667aa4}
+.fact-check-lines{margin-top:9px;display:grid;gap:5px}.fact-check-lines i{display:block;width:91%;height:5px;background:#b8c9ed;border-radius:6px}.fact-check-lines i:nth-child(2){width:100%}.fact-check-lines i:nth-child(3){width:62%}
+.fact-check-result{display:flex;align-items:center;gap:11px;padding:9px 10px;background:#fff;border:1px solid #bac9e9;border-radius:7px}.fact-check-symbol{flex:none;display:grid;place-items:center;width:29px;height:29px;border-radius:50%;color:#4665b0;background:#dce6ff;font-size:19px;font-weight:800}.fact-check-copy{display:grid;gap:3px}.fact-check-copy strong{font-size:11px}.fact-check-copy small{font-size:8px;color:#637499}.fact-check-decor{display:block;margin-top:9px;color:#64759a;text-align:right;font-size:7px;letter-spacing:.09em;font-weight:800}
+/* Conhecimento de IA e curso concluído */
+.ai-skill-row{background:linear-gradient(90deg,rgba(113,139,223,.08),transparent 70%);border-left:2px solid #8da6ff;padding-left:12px}
+.ai-skill-row h3{color:#c7d6ff}
+.course-highlight{display:flex;align-items:center;gap:17px;margin-top:26px;padding:22px 25px;border-radius:8px;border:1px solid #536588;background:#1f2a42}
+.course-icon{flex:none;display:grid;place-items:center;width:38px;height:38px;background:#8ba3ff;color:#1c2c53;border-radius:10px;font-weight:900;font-size:21px}
+.course-label{font-size:9px;letter-spacing:.12em;font-weight:800;color:#9bb4ff}
+.course-highlight h3{font-family:var(--display);font-size:16px;letter-spacing:-.02em;margin:6px 0 4px;color:#f0f4ff}
+.course-highlight p{margin:0;font-size:12px;color:#b1c0df}
+@media(max-width:680px){.fact-check-ui{width:min(100%,305px)}.verates-art{height:178px}.course-highlight{padding:18px;align-items:flex-start}.course-highlight h3{font-size:14px}}
