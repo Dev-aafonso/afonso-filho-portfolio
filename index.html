@@ -7,7 +7,22 @@
   <meta name="theme-color" content="#10131c">
   <title>Afonso Filho — Desenvolvimento, IA e pesquisa</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <script>
+    /* Defina o tema antes do primeiro desenho da pagina (evita flash visual). */
+    (function () {
+      try {
+        var saved = localStorage.getItem('afonso-theme');
+        var chosen = saved === 'light' || saved === 'dark'
+          ? saved
+          : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', chosen);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./theme-responsive.css">
   <script src="./script.js" defer></script>
 </head>
 <body>
@@ -17,6 +32,7 @@
       <a class="brand" href="#inicio" aria-label="Afonso Filho, início"><span class="brand-mark">a<span>.</span></span><span class="brand-name">AFONSO FILHO <small>DESENVOLVIMENTO & PESQUISA</small></span></a>
       <nav class="navigation" aria-label="Menu principal"><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#conhecimentos">Conhecimentos</a></nav>
       <details class="mobile-menu"><summary>Menu</summary><nav aria-label="Menu para celular"><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#conhecimentos">Conhecimentos</a><a href="#contato">Contato</a></nav></details>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ativar tema claro" title="Ativar tema claro"><span class="theme-icon" aria-hidden="true">☀</span><span class="theme-label">Tema claro</span></button>
       <a class="language-link" href="./en.html" lang="en" hreflang="en">EN</a><a class="nav-contact" href="#contato">Vamos conversar <span aria-hidden="true">↗</span></a>
     </div>
   </header>
