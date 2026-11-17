@@ -1028,3 +1028,19 @@ section[id] { scroll-margin-top: 24px; }
 @media (max-width: 480px) {
   .hero-copy .work-availability { font-size: 10px; gap: 8px; margin-bottom: 12px; }
 }
+
+
+/* Skills-to-AI rhythm: remove excessive blank space after Tech Stack */
+.section.skills-section {
+  padding-bottom: clamp(24px, 3.2vw, 44px);
+}
+.section.ai-section {
+  padding-top: clamp(32px, 4vw, 58px);
+}
+.skills-section .stack-visual {
+  margin-bottom: 0;
+}
+@media (max-width: 720px) {
+  .section.skills-section { padding-bottom: 24px; }
+  .section.ai-section { padding-top: 32px; }
+}
