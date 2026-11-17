@@ -220,15 +220,18 @@
     window.addEventListener('load',onJourneyScroll,{once:true});
     updateJourney();
     if(!reduceMotion && 'IntersectionObserver' in window){
+      const journeyRevealItems=[...milestones, ...document.querySelectorAll('.timeline-section .timeline-cert')];
       const milestoneObserver=new IntersectionObserver((entries,observer)=>{
         for(const entry of entries){
           if(!entry.isIntersecting)continue;
           entry.target.classList.add('journey-entered');
           observer.unobserve(entry.target);
         }
-      },{threshold:.12,rootMargin:'0px 0px -5% 0px'});
-      milestones.forEach((item)=>{
-        // Do not hide content while it is out of view; animate only upon arrival.
+      },{threshold:.08,rootMargin:'0px 0px -12% 0px'});
+      journeyRevealItems.forEach((item)=>{
+        // Keep content already in view readable; prepare only items below the viewport.
+        if(item.getBoundingClientRect().top < window.innerHeight * .92)return;
+        item.classList.add('journey-pending');
         milestoneObserver.observe(item);
       });
     }
