@@ -1,1 +1,45 @@
-# dev-aafonso.github.io
+# Afonso Filho — Portfólio profissional
+
+Portfólio bilíngue (português/inglês) de **Afonso José Moreira Barros Filho**, estudante do Técnico Integrado em Informática no IFCE — Campus Cedro, com interesse em desenvolvimento de software, inteligência artificial e tecnologia educacional.
+
+**Site:** https://dev-aafonso.github.io/  
+**Versão em inglês:** https://dev-aafonso.github.io/en.html
+
+## Tecnologias e conhecimentos
+
+- **Linguagens:** JavaScript, TypeScript, Java e Python.
+- **Front-end:** HTML, CSS, React, React Native e Expo.
+- **Back-end:** Node.js, NestJS e APIs REST.
+- **Dados:** PostgreSQL, Prisma e SQL.
+- **IA:** interesse em processamento de linguagem natural, classificação de textos e aplicações de IA; uso de ferramentas de IA para estudo e desenvolvimento.
+- **Ferramentas:** Git, GitHub e documentação técnica.
+
+## Projetos em destaque
+
+### SIGE IFCE — Gestão de Eventos Científicos
+Projeto de software em equipe para gerenciamento de eventos, ações e inscrições. Atuação em back-end, autenticação, controle de acesso e testes. Tecnologias: TypeScript, NestJS, PostgreSQL e Prisma.
+
+### Sistema Adaptativo para o ENEM — PIBIC Jr. 2025 / IFCE
+Projeto de iniciação científica sobre recomendação adaptativa de questões, combinando estimativas de habilidade (modelo Elo) e de retenção de memória (Half-life Regression, HLR).
+
+### Verates — Protótipo de verificação de notícias
+Aplicativo concebido para auxiliar na identificação de notícias falsas. **Front-end:** React Native (ecossistema React), Expo e TypeScript. **Abordagem de IA proposta:** PLN para análise de textos e classificação de confiabilidade. **Estado do código público:** a pontuação é simulada; não há integração verificável de modelo de IA nessa versão.
+
+Repositório: https://github.com/Dev-aafonso/ProjetoVerates
+
+### Elo em Jogo — PIBIC Jr. 2026 / IFCE
+Pesquisa sobre gamificação de um sistema adaptativo de questões para o ENEM, com foco em motivação, engajamento e desempenho dos estudantes.
+
+## Formação complementar
+
+**Udemy:** JavaScript e TypeScript do básico ao avançado — JS + TS (**concluído**).
+
+## Sobre o site
+
+Site estático hospedado pelo GitHub Pages. Inclui versões em português e inglês, design responsivo e alternância entre tema claro e escuro. O conteúdo principal está em `index.html` e `en.html`, com estilos em `style.css` e `theme-responsive.css`.
+
+## Contato
+
+- [LinkedIn](https://www.linkedin.com/in/afonso-filho-ab43811a6/)
+- [GitHub](https://github.com/Dev-aafonso)
+- E-mail: afonsofilho692@gmail.com

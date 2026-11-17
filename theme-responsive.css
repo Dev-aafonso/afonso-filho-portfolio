@@ -251,3 +251,27 @@ section[id] { scroll-margin-top: 24px; }
 @media (prefers-reduced-motion: reduce) {
   .theme-toggle { transition: none; }
 }
+
+/* FIX-VERATES-OVERLAP-2026 */
+.verates-project .verates-art {
+  height: auto;
+  min-height: 240px;
+  margin: 14px 0 22px;
+  padding: 20px 8px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.verates-project .fact-check-ui {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  box-sizing: border-box;
+  transform: none;
+}
+.verates-project .small-content { margin-top: 0; }
+@media (max-width: 480px) {
+  .verates-project .verates-art { min-height: 225px; padding: 14px 0; }
+  .verates-project .fact-check-ui { max-width: 100%; }
+}
