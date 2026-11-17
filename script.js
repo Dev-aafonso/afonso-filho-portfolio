@@ -190,4 +190,63 @@
       : (isEnglish?'Could not copy. Email: '+email:'Não foi possível copiar. E-mail: '+email);
   });
 
+
+  // Timeline scroll-fill and visible milestones.
+  const timeline=document.querySelector('[data-journey-timeline]');
+  const milestones=timeline ? [...timeline.querySelectorAll('.journey-item')] : [];
+  if(timeline && milestones.length){
+    const reduceMotion=mediaQueryReducedMotion();
+    let timelinePending=false;
+    const updateJourney=()=>{
+      const rect=timeline.getBoundingClientRect();
+      const lineHeight=Math.max(1,rect.height);
+      // Progress reaches the bottom as the last milestone enters the reading area.
+      const readingY=window.innerHeight * .62;
+      const fill=Math.max(0,Math.min(1,(readingY-rect.top)/lineHeight));
+      timeline.style.setProperty('--journey-fill',reduceMotion?'100%':(fill*100).toFixed(1)+'%');
+      for(const item of milestones){
+        const reached=reduceMotion||item.getBoundingClientRect().top<=readingY;
+        item.classList.toggle('is-past',reached);
+      }
+      timelinePending=false;
+    };
+    const onJourneyScroll=()=>{
+      if(timelinePending)return;
+      timelinePending=true;
+      window.requestAnimationFrame(updateJourney);
+    };
+    window.addEventListener('scroll',onJourneyScroll,{passive:true});
+    window.addEventListener('resize',onJourneyScroll,{passive:true});
+    window.addEventListener('load',onJourneyScroll,{once:true});
+    updateJourney();
+    if(!reduceMotion && 'IntersectionObserver' in window){
+      const milestoneObserver=new IntersectionObserver((entries,observer)=>{
+        for(const entry of entries){
+          if(!entry.isIntersecting)continue;
+          entry.target.classList.add('journey-entered');
+          observer.unobserve(entry.target);
+        }
+      },{threshold:.12,rootMargin:'0px 0px -5% 0px'});
+      milestones.forEach((item)=>{
+        // Do not hide content while it is out of view; animate only upon arrival.
+        milestoneObserver.observe(item);
+      });
+    }
+  }
+
+  // Subtle sequential entrance for AI cards without changing layout.
+  const aiCards=[...document.querySelectorAll('.ai-topic')];
+  if(!mediaQueryReducedMotion() && 'IntersectionObserver' in window){
+    const aiObserver=new IntersectionObserver((entries,observer)=>{
+      for(const entry of entries){
+        if(!entry.isIntersecting)continue;
+        const i=aiCards.indexOf(entry.target);
+        entry.target.style.setProperty('--entry-delay',Math.min(i,2)*90+'ms');
+        entry.target.classList.add('ai-entered');
+        observer.unobserve(entry.target);
+      }
+    },{threshold:.1});
+    aiCards.forEach(card=>aiObserver.observe(card));
+  }
+
 })();
