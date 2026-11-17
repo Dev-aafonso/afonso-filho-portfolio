@@ -469,3 +469,96 @@ section[id] { scroll-margin-top: 24px; }
   .hero-copy > .eyebrow, .hero-copy > h1, .hero-copy > .hero-intro,
   .hero-copy > .hero-actions, .hero-visual { animation: none !important; }
 }
+
+
+/* HERO-MOTION-2026-11-17: orbitas, brilho e microinteracoes */
+.hero-visual { isolation: isolate; }
+.hero-visual .visual-orbit { z-index: 0; }
+.hero-visual .visual-center {
+  z-index: 2;
+  transition: transform .42s cubic-bezier(.2,.75,.2,1), box-shadow .42s ease;
+}
+.hero-visual .orbit-label {
+  z-index: 3;
+  transition: background-color .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.hero-visual .profile-photo { transition: filter .3s ease; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-visual .orbit-one {
+    animation: af-orbit-cw 36s linear infinite;
+  }
+  .hero-visual .orbit-two {
+    animation: af-orbit-ccw 54s linear infinite;
+  }
+  .hero-visual .visual-orbit::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #c7d7ff;
+    box-shadow: 0 0 0 4px rgba(154,184,255,.14), 0 0 18px 4px rgba(171,198,255,.65);
+    transform: translate(-50%, -50%);
+  }
+  .hero-visual .orbit-two::before {
+    width: 6px;
+    height: 6px;
+    background: #8cb3ff;
+    box-shadow: 0 0 16px 3px rgba(135,169,255,.55);
+  }
+  .hero-visual .label-one { animation: af-float-one 5.6s ease-in-out infinite alternate; }
+  .hero-visual .label-two { animation: af-float-two 6.6s ease-in-out infinite alternate; }
+  .hero-visual .label-three { animation: af-float-one 7.2s ease-in-out -2s infinite alternate; }
+  .hero-visual .profile-photo { animation: af-photo-breathe 8s ease-in-out infinite; }
+  @keyframes af-orbit-cw {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  @keyframes af-orbit-ccw {
+    from { transform: translate(-50%, -50%) rotate(360deg); }
+    to { transform: translate(-50%, -50%) rotate(0deg); }
+  }
+  @keyframes af-float-one {
+    from { transform: translateY(0); }
+    to { transform: translateY(-6px); }
+  }
+  @keyframes af-float-two {
+    from { transform: translateY(-4px); }
+    to { transform: translateY(4px); }
+  }
+  @keyframes af-photo-breathe {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.055); }
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .hero-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(circle 180px at var(--spot-x,50%) var(--spot-y,50%),
+      rgba(216,229,255,.18), rgba(173,198,255,.035) 55%, transparent 100%);
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  .hero-visual:hover::after { opacity: 1; }
+  .hero-visual:hover .visual-center {
+    transform: translate(-50%, -50%) scale(1.045);
+    box-shadow: 0 0 62px rgba(184,206,255,.34), 0 8px 22px rgba(21,34,73,.25);
+  }
+  .hero-visual:hover .orbit-label {
+    background-color: rgba(29,45,79,.94);
+    border-color: rgba(197,213,255,.7);
+    box-shadow: 0 4px 16px rgba(18,29,57,.25);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual .visual-orbit,
+  .hero-visual .orbit-label,
+  .hero-visual .profile-photo { animation: none !important; }
+  .hero-visual .visual-center { transform: translate(-50%, -50%); }
+}
