@@ -1211,3 +1211,98 @@ section[id] { scroll-margin-top: 24px; }
   .project-filter .filter-btn,
   .project .project-link { transition: none !important; transform: none !important; }
 }
+
+
+/* Hero CTA polish v11: three clear actions, balanced on mobile */
+.hero-actions {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+.hero-actions > a {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 0;
+  border-radius: 9px;
+  padding: 12px 17px;
+  font: 800 12px/1.35 var(--font);
+  text-decoration: none;
+  transition: background-color .22s ease, color .22s ease,
+              border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+}
+.hero-actions > a > span {
+  display: inline-block;
+  margin-left: 0;
+  color: inherit;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform .22s ease;
+}
+.hero-actions .button.primary {
+  background: #abc2ff;
+  border: 1px solid #abc2ff;
+  color: #15213d;
+  box-shadow: 0 7px 19px rgba(22,39,92,.19);
+}
+.hero-actions .text-link {
+  background: #1d2b45;
+  border: 1px solid #58729d;
+  color: #eef4ff;
+  box-shadow: none;
+}
+:root[data-theme="light"] .hero-actions .button.primary {
+  background: #285fb9;
+  border-color: #285fb9;
+  color: white;
+}
+:root[data-theme="light"] .hero-actions .text-link {
+  background: #f4f8ff;
+  border-color: #b7cae9;
+  color: #204579;
+}
+.hero-actions > a:focus-visible,
+.contact-section .contact-actions .button.light:focus-visible {
+  outline: 3px solid #88b4ff;
+  outline-offset: 3px;
+}
+@media (hover:hover) and (pointer:fine) {
+  .hero-actions .button.primary:hover {
+    background: #ceddff;
+    border-color: #ceddff;
+    box-shadow: 0 10px 24px rgba(30,51,112,.25);
+    transform: translateY(-2px);
+  }
+  .hero-actions .text-link:hover {
+    background: #2b4269;
+    color: #fff;
+    border-color: #89a8df;
+    transform: translateY(-2px);
+  }
+  :root[data-theme="light"] .hero-actions .button.primary:hover {
+    background: #19488e;
+    border-color: #19488e;
+    color: #fff;
+  }
+  :root[data-theme="light"] .hero-actions .text-link:hover {
+    background: #e4efff;
+    border-color: #8bacda;
+    color: #1c427a;
+  }
+  .hero-actions > a:hover > span { transform: translate(2px, -2px); }
+}
+@media (max-width: 720px) {
+  .hero-actions { gap: 10px; }
+  .hero-actions > a { flex: 1 1 160px; }
+  .hero-actions .button.primary { flex-basis: 100%; }
+}
+@media (max-width: 480px) {
+  .hero-actions > a { flex: 1 1 100%; width: 100%; min-height: 49px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-actions > a, .hero-actions > a > span { transition: none !important; transform: none !important; }
+}
