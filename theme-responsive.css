@@ -1547,3 +1547,10 @@ section[id] { scroll-margin-top: 24px; }
   .timeline-section .journey-item, .timeline-section .journey-content,
   .timeline-section .journey-date,.ai-topic { animation: none !important; translate: none !important; }
 }
+
+/* Technology logos: Devicon (MIT). */
+.tech-mark { background: #fff; padding: 4px; box-sizing: border-box; }
+.tech-mark svg { display: block; width: 100%; height: 100%; }
+.theme-icon svg { display: block; width: 19px; height: 19px; }
+.theme-moon, [data-theme="light"] .theme-sun { display: none !important; }
+[data-theme="light"] .theme-moon { display: block !important; }
