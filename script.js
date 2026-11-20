@@ -251,4 +251,21 @@
     aiCards.forEach(card=>aiObserver.observe(card));
   }
 
+  // Keep the original download link as a fallback when dialog is unavailable.
+  const resumeDialog = document.querySelector('[data-resume-dialog]');
+  const resumeTrigger = document.querySelector('[data-resume-open]');
+  if (resumeDialog && resumeTrigger && typeof resumeDialog.showModal === 'function') {
+    resumeTrigger.addEventListener('click', event => {
+      event.preventDefault();
+      resumeDialog.showModal();
+      resumeDialog.querySelector('[data-resume-close]')?.focus();
+    });
+    resumeDialog.querySelector('[data-resume-close]')?.addEventListener('click', () => resumeDialog.close());
+    resumeDialog.addEventListener('click', event => {
+      if (event.target === resumeDialog) resumeDialog.close();
+    });
+    resumeDialog.querySelectorAll('.resume-options a').forEach(link => {
+      link.addEventListener('click', () => resumeDialog.close());
+    });
+  }
 })();

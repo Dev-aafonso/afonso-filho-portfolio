@@ -1582,3 +1582,28 @@ section[id] { scroll-margin-top: 24px; }
     75%, 100% { transform: scale(2.4); opacity: 0; }
   }
 }
+
+/* Résumé language selection */
+.resume-dialog { width:min(440px,calc(100% - 32px)); max-height:calc(100% - 32px); overflow:auto; padding:0; border:1px solid #526487; border-radius:18px; color:#edf3ff; background:#192238; box-shadow:0 24px 70px #060a16aa; }
+.resume-dialog::backdrop { background:rgba(7,12,25,.72); }
+.resume-dialog-inner { position:relative; padding:30px; }
+.resume-dialog .resume-close { position:absolute; right:18px; top:16px; width:38px; height:38px; display:grid; place-items:center; border:1px solid #536380; border-radius:50%; color:inherit; background:transparent; cursor:pointer; font-size:25px; line-height:1; }
+.resume-dialog .resume-eyebrow { margin:0 0 8px; color:#a8bfff; font-size:11px; letter-spacing:.14em; font-weight:800; }
+.resume-dialog h2 { margin:0 40px 10px 0; font:800 26px/1.2 var(--display); letter-spacing:-.03em; }
+.resume-dialog p:not(.resume-eyebrow) { margin:0 0 22px; color:#c1cde1; font-size:14px; line-height:1.6; }
+.resume-options { display:grid; gap:10px; }
+.resume-options a { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:15px 17px; border:1px solid #536887; border-radius:11px; color:#edf3ff; background:#26354e; }
+.resume-options a:hover { background:#34486a; border-color:#9cb8f3; }
+.resume-options a span { display:grid; gap:2px; }
+.resume-options strong { font-size:15px; }
+.resume-options small { color:#b8c9e5; font-size:13px; }
+.resume-options svg { width:21px; height:21px; flex:none; }
+.resume-dialog :focus-visible { outline:3px solid #a6c5ff; outline-offset:3px; }
+:root[data-theme="light"] .resume-dialog { background:#fff; border-color:#b9c9e1; color:#172f52; }
+:root[data-theme="light"] .resume-dialog .resume-eyebrow { color:#315fa6; }
+:root[data-theme="light"] .resume-dialog p:not(.resume-eyebrow) { color:#506680; }
+:root[data-theme="light"] .resume-close { border-color:#bac9dc; }
+:root[data-theme="light"] .resume-options a { background:#f1f5fc; border-color:#c3d1e3; color:#1c385d; }
+:root[data-theme="light"] .resume-options a:hover { background:#e3edfb; border-color:#7299d6; }
+:root[data-theme="light"] .resume-options small { color:#526a86; }
+@media (max-width:480px) { .resume-dialog-inner { padding:24px; } }
