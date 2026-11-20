@@ -26,7 +26,6 @@
     if (toggle) {
       toggle.setAttribute('aria-label', label);
       toggle.setAttribute('title', label);
-      toggle.querySelector('.theme-icon').textContent = nextIsLight ? '☀' : '☾';
       toggle.querySelector('.theme-label').textContent = isEnglish
         ? (nextIsLight ? 'Light mode' : 'Dark mode')
         : (nextIsLight ? 'Tema claro' : 'Tema escuro');
