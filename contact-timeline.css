@@ -1,7 +1,7 @@
 /* Contact actions: clear, consistent controls that fit both color themes. */
 .contact-section .contact-actions { gap: 14px 20px; align-items: center; }
-.contact-section .contact-actions > .contact-main-cta,
-:root[data-theme="light"] .contact-section .contact-actions > .contact-main-cta {
+.contact-section .contact-actions > .button.light.contact-main-cta,
+:root[data-theme="light"] .contact-section .contact-actions > .button.light.contact-main-cta {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
@@ -75,8 +75,8 @@
   outline-offset: 3px;
 }
 @media (hover:hover) and (pointer:fine) {
-  .contact-section .contact-actions > .contact-main-cta:hover,
-  :root[data-theme="light"] .contact-section .contact-actions > .contact-main-cta:hover {
+  .contact-section .contact-actions > .button.light.contact-main-cta:hover,
+  :root[data-theme="light"] .contact-section .contact-actions > .button.light.contact-main-cta:hover {
     background: #25457e; border-color: #25457e; color: #fff;
     box-shadow: 0 8px 18px rgba(19,38,79,.22); transform: translateY(-2px);
   }
@@ -92,7 +92,7 @@
   .contact-section .contact-socials .contact-link { flex: 0 1 auto; }
 }
 @media (max-width: 380px) {
-  .contact-section .contact-actions > .contact-main-cta { width: 100%; }
+  .contact-section .contact-actions > .button.light.contact-main-cta { width: 100%; }
   .contact-section .contact-socials .contact-link { flex: 1 1 auto; }
 }
 
