@@ -1561,3 +1561,24 @@ section[id] { scroll-margin-top: 24px; }
 .hero-actions .cta-symbol .ui-icon, .back-to-top .ui-icon { width: 1em; height: 1em; }
 .ticker-inner i .ui-icon, .about-signature .ui-icon { width: 1em; height: 1em; }
 .contact-section .contact-symbol .ui-icon { width: 1em; height: 1em; }
+
+/* A gentle availability indicator, disabled for reduced-motion preferences. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy .work-availability {
+    animation: portfolio-hero-appear .65s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .hero-copy .availability-pulse::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1px solid #8bd4ad;
+    pointer-events: none;
+    animation: availability-ripple 3.4s ease-out infinite;
+  }
+  :root[data-theme="light"] .hero-copy .availability-pulse::after { border-color: #26885d; }
+  @keyframes availability-ripple {
+    0%, 12% { transform: scale(.75); opacity: .55; }
+    60%, 100% { transform: scale(2); opacity: 0; }
+  }
+}
