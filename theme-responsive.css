@@ -1572,13 +1572,13 @@ section[id] { scroll-margin-top: 24px; }
     position: absolute;
     inset: -3px;
     border-radius: 50%;
-    border: 1px solid #8bd4ad;
+    border: 2px solid #8bd4ad;
     pointer-events: none;
-    animation: availability-ripple 3.4s ease-out infinite;
+    animation: availability-ripple 2.8s ease-out infinite;
   }
   :root[data-theme="light"] .hero-copy .availability-pulse::after { border-color: #26885d; }
   @keyframes availability-ripple {
-    0%, 12% { transform: scale(.75); opacity: .55; }
-    60%, 100% { transform: scale(2); opacity: 0; }
+    0%, 12% { transform: scale(.8); opacity: .9; }
+    75%, 100% { transform: scale(2.4); opacity: 0; }
   }
 }
