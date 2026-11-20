@@ -1554,3 +1554,10 @@ section[id] { scroll-margin-top: 24px; }
 .theme-icon svg { display: block; width: 19px; height: 19px; }
 .theme-moon, [data-theme="light"] .theme-sun { display: none !important; }
 [data-theme="light"] .theme-moon { display: block !important; }
+
+/* Consistent vector icons for links, controls and decorative marks. */
+.ui-icon { display: inline-block; width: 1em; height: 1em; flex: none; vertical-align: -0.14em; }
+.nav-contact .ui-icon, .project-link .ui-icon, .text-link .ui-icon, .footer-links .ui-icon, .visual-bottom .ui-icon { width: 1em; height: 1em; }
+.hero-actions .cta-symbol .ui-icon, .back-to-top .ui-icon { width: 1em; height: 1em; }
+.ticker-inner i .ui-icon, .about-signature .ui-icon { width: 1em; height: 1em; }
+.contact-section .contact-symbol .ui-icon { width: 1em; height: 1em; }
